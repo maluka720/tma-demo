@@ -1,5 +1,4 @@
 // import { useState } from "react";
-import WebApp from "@twa-dev/sdk";
 import {
   SendTransactionRequest,
   useTonConnectUI,
