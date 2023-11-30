@@ -12,11 +12,13 @@ function App() {
           style={{ backgroundColor: "#0088cc", color: "#fff" }}
           onClick={() => WebApp.showAlert(`Hello World! `)}
         >
-          充值
+          Pay
         </button>
       </div>
       <div className="card">
-        <button onClick={() => WebApp.showAlert(`coming soon `)}>赞助</button>
+        <button onClick={() => WebApp.showAlert(`coming soon `)}>
+          Donate 1$
+        </button>
       </div>
       {/* <div className="card">
         <button onClick={() => WebApp.showAlert(`coming soon `)}>下单</button>
