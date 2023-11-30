@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <TonConnectUIProvider
-        manifestUrl="https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json"
+        manifestUrl="https://maluka720.github.io/tma-demo/manifest.json"
         uiPreferences={{ theme: THEME.LIGHT }}
         walletsListConfiguration={{
           includeWallets: [
