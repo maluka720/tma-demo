@@ -37,13 +37,20 @@ function Donate() {
   const wallet = useTonWallet();
   const [tonConnectUi] = useTonConnectUI();
 
+  const donateTon = async () => {
+    try {
+      const res = await tonConnectUi.sendTransaction(defaultTx);
+      console.log("success===>", res);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <div className="card">
         {wallet ? (
-          <button onClick={() => tonConnectUi.sendTransaction(defaultTx)}>
-            Donate 0.01 TON
-          </button>
+          <button onClick={donateTon}>Donate 0.01 TON</button>
         ) : (
           <button onClick={() => tonConnectUi.openModal()}>Donate</button>
         )}
