@@ -3,11 +3,12 @@ import {
   SendTransactionRequest,
   useTonConnectUI,
   useTonWallet,
+  UserRejectsError,
 } from "@tonconnect/ui-react";
 
 const defaultTx: SendTransactionRequest = {
-  // The transaction is valid for 10 minutes from now, in unix epoch seconds.
-  validUntil: Math.floor(Date.now() / 1000) + 600,
+  // The transaction is valid for 1 minutes from now, in unix epoch seconds.
+  validUntil: Math.floor(Date.now() / 1000) + 60,
   messages: [
     {
       // The receiver's address.
@@ -41,8 +42,15 @@ function Donate() {
     try {
       const res = await tonConnectUi.sendTransaction(defaultTx);
       console.log("success===>", res);
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      console.error(e);
+      if (e instanceof UserRejectsError) {
+        console.warn(
+          "You rejected the transaction. Please confirm it to send to the blockchain"
+        );
+      } else {
+        console.error(e);
+      }
     }
   };
 
